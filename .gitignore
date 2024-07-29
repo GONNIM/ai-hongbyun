@@ -1,4 +1,5 @@
 __pycache__
 .python-version
 .devcontainer
-.DS_Store/
+.DS_Store
+*.csv/
