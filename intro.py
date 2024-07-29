@@ -99,12 +99,13 @@ else:
 
 st.markdown(law_card, unsafe_allow_html=True)
 
+# Footer
+st.write("")
+st.markdown('<div class="footer"><p>© 2024 AI 홍변</p></div>', unsafe_allow_html=True)
+
 st.divider()
 
 # 전체 방문자 수와 오늘 방문자 수 가져오기
 total_visitors, today_visitors = get_visitor_counts()
 st.write(f'전체 방문자 수 : {total_visitors}')
 st.write(f'오늘 방문자 수 : {today_visitors}')
-
-# Footer
-st.markdown('<div class="footer"><p>© 2024 AI 홍변</p></div>', unsafe_allow_html=True)
