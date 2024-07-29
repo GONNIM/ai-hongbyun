@@ -1,6 +1,8 @@
 import streamlit as st  # type: ignore
 
 from style import style_main
+from visitor_log import log_visitor_info
+from visitor_counts import get_visitor_counts
 
 
 # Initialize
@@ -11,6 +13,9 @@ if 'selected_law' not in st.session_state:
 st.set_page_config(page_title="AI 홍변", page_icon="⚖️", layout="wide")
 # Title
 st.title("⚖️ AI 홍변")
+
+# 방문자 정보 기록 호출
+log_visitor_info()
 
 # Header Section
 st.markdown(style_main, unsafe_allow_html=True)
@@ -93,6 +98,13 @@ else:
     """
 
 st.markdown(law_card, unsafe_allow_html=True)
+
+st.divider()
+
+# 전체 방문자 수와 오늘 방문자 수 가져오기
+total_visitors, today_visitors = get_visitor_counts()
+st.write(f'전체 방문자 수 : {total_visitors}')
+st.write(f'오늘 방문자 수 : {today_visitors}')
 
 # Footer
 st.markdown('<div class="footer"><p>© 2024 AI 홍변</p></div>', unsafe_allow_html=True)
