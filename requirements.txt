@@ -1,10 +1,11 @@
-altair==5.3.0
+altair==4.2.2
 attrs==23.2.0
 blinker==1.8.2
 cachetools==5.4.0
 certifi==2024.7.4
 charset-normalizer==3.3.2
 click==8.1.7
+entrypoints==0.4
 getmac==0.9.5
 gitdb==4.0.11
 GitPython==3.1.43
@@ -24,6 +25,7 @@ pyarrow==17.0.0
 pydeck==0.9.1
 Pygments==2.18.0
 python-dateutil==2.9.0.post0
+python-decouple==3.8
 pytz==2024.1
 referencing==0.35.1
 requests==2.32.3
@@ -32,6 +34,9 @@ rpds-py==0.19.1
 six==1.16.0
 smmap==5.0.1
 streamlit==1.37.0
+streamlit-aggrid==1.0.5
+streamlit-option-menu==0.3.13
+streamlit-tags==1.2.8
 tenacity==8.5.0
 toml==0.10.2
 toolz==0.12.1
