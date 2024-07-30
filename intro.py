@@ -19,6 +19,10 @@ if 'page' not in st.session_state:
 if 'login_failed' not in st.session_state:
     st.session_state.login_failed = False
 
+# Set up session state so app interactions don't reset the app.
+if not "valid_inputs_received" in st.session_state:
+    st.session_state["valid_inputs_received"] = False
+
 # Initialize
 if 'selected_law' not in st.session_state:
     st.session_state.selected_law = None
@@ -32,12 +36,14 @@ def go_to_admin():
 
 
 def check_password():
-    s_password = st.session_state.password
+    s_password = st.session_state.input_password
+
     if s_password == API_KEY or s_password == USER_KEY or s_password == LOGIN_PW:
         go_to_admin()
         st.rerun()
     else:
         st.session_state.login_failed = True
+        st.session_state.s_password = s_password
 
 
 if st.session_state.page == "main":
@@ -127,26 +133,34 @@ if st.session_state.page == "main":
         </div>
         """
 
-    st.markdown(law_card, unsafe_allow_html=True)
-    # if st.markdown(law_card, unsafe_allow_html=True):
-    #     if selected_law:
-    #         result = log_navigator_info(selected_law, law_info)
+    if st.markdown(law_card, unsafe_allow_html=True):
+        if selected_law:
+            result = log_navigator_info(selected_law, law_info)
 
     # Footer
     st.write("")
     st.markdown('<div class="footer"><p>© 2024 AI 홍변</p></div>', unsafe_allow_html=True)
 
-    st.divider()
+    # st.divider()
 
-    if st.button("Go to Admin Page"):
-        st.session_state.show_password_input = True
+    # if st.button("Go to Admin Page"):
+    #     st.session_state.show_password_input = True
 
-        if st.session_state.show_password_input:
-            st.text_input('Enter Password', type='password', key='password')
-            st.button('Submit', on_click=check_password)
+    #     if st.session_state.show_password_input:
+    #         input_password = st.text_input('Enter Password', type='password', key='password')
+    #         submit_button = st.form_submit_button(label="Submit")
 
-    if st.session_state.login_failed:
-        st.error('Incorrect password, please try again.')
+    # if submit_button and input_password:
+    #     st.stop()
+    # elif submit_button or st.session_state.valid_inputs_received:
+    #     if submit_button:
+    #         st.session_state.valid_inputs_received = True
+
+    # if submit_button:
+    #     if st.session_state.login_failed:
+    #         st.error(f'Incorrect password ({st.session_state.input_password}), please try again.')
+    #     else:
+    #         st.success("✅ Done!")
 elif st.session_state.page == "admin":
     import admin
     admin.app()

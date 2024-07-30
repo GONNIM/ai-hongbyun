@@ -21,6 +21,8 @@ def initialize_csv_file():
 
 
 def log_navigator_info(selected_law, law_info):
+    pass
+
     initialize_csv_file()
 
     if st.session_state.user_key and selected_law and law_info:
