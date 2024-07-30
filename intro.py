@@ -45,7 +45,7 @@ if st.session_state.page == "main":
     st.title("⚖️ AI 홍변")
 
     # 방문자 정보 기록 호출
-    st.session_state.user_key = log_visitor_info()
+    # st.session_state.user_key = log_visitor_info()
 
     # Header Section
     st.markdown(style_main, unsafe_allow_html=True)
@@ -114,6 +114,7 @@ if st.session_state.page == "main":
             <div class="law-card">
                 <div class="law-name">{selected_law}</div>
                 <div class="law-description">{law_info['description']}</div>
+                <a href="{law_info['link']}" target="_blank" class="law-link">⚖️ AI 홍변 - {selected_law} 챗봇 열기</a>
                 <a href="{law_info['link_2']}" target="_blank" class="law-link">⚖️ AI 홍변 (Season 2) - {selected_law} 챗봇 열기</a>
             </div>
             """
@@ -126,9 +127,10 @@ if st.session_state.page == "main":
         </div>
         """
 
-    if st.markdown(law_card, unsafe_allow_html=True):
-        if selected_law:
-            result = log_navigator_info(selected_law, law_info)
+    st.markdown(law_card, unsafe_allow_html=True)
+    # if st.markdown(law_card, unsafe_allow_html=True):
+    #     if selected_law:
+    #         result = log_navigator_info(selected_law, law_info)
 
     # Footer
     st.write("")
