@@ -3,4 +3,5 @@ __pycache__
 .devcontainer
 .DS_Store
 *.csv
-secrets.toml/
+secrets.toml
+.streamlit/
