@@ -187,6 +187,9 @@ def app():
         st.markdown("### Chatbot Wake Up")
         st.caption("")
 
+        import user_agent
+        user_agent.main()
+
     elif selected == "Go to Intro Page":
         st.session_state.page = "main"
         st.session_state.login_failed = False
