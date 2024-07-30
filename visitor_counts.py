@@ -34,3 +34,25 @@ def get_visitor_counts():
     except pd.errors.ParserError:
         st.error("로그 파일을 읽는 중 오류가 발생했습니다.")
         return 0, 0
+    
+
+def get_unique_visitor_counts():
+    try:
+        # CSV 파일 읽기
+        df = pd.read_csv(LOG_FILE)
+        
+        column_name = 'User Key'
+
+        unique_values = df[column_name].unique()
+        unique_counts = len(unique_values)
+
+        return unique_counts
+    except FileNotFoundError:
+        st.error("로그 파일을 찾을 수 없습니다.")
+        return 0
+    except pd.errors.EmptyDataError:
+        st.error("로그 파일이 비어 있습니다.")
+        return 0
+    except pd.errors.ParserError:
+        st.error("로그 파일을 읽는 중 오류가 발생했습니다.")
+        return 0

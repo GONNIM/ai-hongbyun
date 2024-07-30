@@ -89,3 +89,21 @@ style_main = """
     }
     </style>
 """
+
+style_admin = """
+    <style>
+    .css-1d391kg {
+        color: #262730; /* 텍스트 색상 */
+    }
+    .css-1d391kg h1 {
+        color: #F63366; /* 헤더 색상 */
+    }
+    .css-1d391kg .sidebar .sidebar-content {
+        background-color: #F0F2F6; /* 사이드바 배경 색상 */
+    }
+    .css-1d391kg .main {
+        background-color: #FFFFFF; /* 메인 배경 색상 */
+        font-family: 'sans serif'; /* 폰트 설정 */
+    }
+    </style>
+"""

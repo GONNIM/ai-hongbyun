@@ -17,7 +17,7 @@ def initialize_csv_file():
     if not os.path.exists(LOG_FILE):
         with open(LOG_FILE, mode='w', newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(['User Key', 'Generated Time', 'Device Info', 'Location'])
+            writer.writerow(['User Key', 'System Info', 'Timestamp', 'IP Address', 'User Location'])
 
 
 def log_visitor_info():
@@ -49,6 +49,7 @@ def log_visitor_info():
         combined_data = new_data
 
     combined_data.to_csv(LOG_FILE, index=False)
+    return unique_key
 
 
 # Get System Info
